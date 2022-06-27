@@ -3,8 +3,8 @@ char projectTitle[] = "Town Life Simulation";
 char collegeName[] = "St Joseph Engineering College, Mangalore";
 char commands0[] = "Press S to Start";
 
-#define SUN_X_DEFAULT -0.005
-#define SUN_Y_DEFAULT -0.05;
+#define PLANET_X_DEFAULT -0.005
+#define PLANET_Y_DEFAULT -0.05;
 #define DEFAULT_VEHICLE_POS -0.005;
 #define CLOUD_ONE_DEFAULT_SPEED -0.005;
 #define CLOUD_TWO_DEFAULT_SPEED -0.005;
@@ -12,8 +12,8 @@ char commands0[] = "Press S to Start";
 #define DEFAULT_CAR_SPEED 0.0002;
 
 // Sun default positions
-float sunX = SUN_X_DEFAULT;
-float sunY = SUN_Y_DEFAULT;
+float planetX = PLANET_X_DEFAULT;
+float planetY = PLANET_Y_DEFAULT;
 
 float vehiclePos = DEFAULT_VEHICLE_POS;
 
@@ -32,6 +32,7 @@ float pos = 0;
 // View mode
 // 0 = Title screen
 // 1 - Scenary screen
+// 2 - Pause screen
 int view=1;
 
 // Directions
