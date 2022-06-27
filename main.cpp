@@ -4,7 +4,7 @@
 #include <cstring>
 #include <stdio.h>
 
-// constants.h includes all the contants
+// constants.h includes all the constants
 #include "constants.h"
 // functions.h includes all the function declarations
 #include "functions.h"
@@ -163,7 +163,7 @@ void resetScene() {
     cloudThreeSpeed = CLOUD_THREE_DEFAULT_SPEED;
 }
 
-void displayHandle() {
+void handleDisplay() {
     // Title screen view
     if(view==0) {
         glClearColor (1.0, 1.0, 1.0, 1.0);
@@ -190,7 +190,7 @@ void displayHandle() {
     }
 }
 
-void keyHandle(unsigned char key, int x, int y) {
+void handleKey(unsigned char key, int x, int y) {
     if(key=='s') {
         // Set mode to scenary mode
         view = 1;

@@ -1,6 +1,6 @@
 // Handlers
-void displayHandle(); 
-void keyHandle(unsigned int, char, char);
+void handleDisplay(); 
+void handleKey(unsigned int, char, char);
 
 // Drawing functions
 void drawCircle(GLfloat, GLfloat, GLfloat, GLfloat);
