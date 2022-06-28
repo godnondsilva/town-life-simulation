@@ -3,6 +3,16 @@ char projectTitle[] = "Town Life Simulation";
 char collegeName[] = "St Joseph Engineering College, Mangalore";
 char commands0[] = "Press S to Start";
 
+// Pause screen configuration
+char pauseTitle[] = "Simulation paused";
+char pauseCmd0[] = "Press P to resume";
+
+// Scene title configuration
+char dawn[] = "Dawn";
+char morning[] = "Morning";
+char evening[] = "Evening";
+char night[] = "Night";
+
 #define PLANET_X_DEFAULT -0.005
 #define PLANET_Y_DEFAULT -0.05;
 #define DEFAULT_VEHICLE_POS -0.005;
@@ -32,10 +42,20 @@ float pos = 0;
 // View mode
 // 0 = Title screen
 // 1 - Scenary screen
-// 2 - Pause screen
 int view=1;
 
 // Directions
 // A - Move slower
 // D - Move faster
 float carSpeed = DEFAULT_CAR_SPEED;
+
+// Pause mode
+// 0 - Not paused
+// 1 - Paused
+int pause=0;
+
+// Lock mode
+// 0 - Value set to default (changing values)
+// 1 - Value not locked (first time)
+// 2 - Value locked (second time)
+int lock=1;

@@ -9,6 +9,7 @@ void drawAlphaRectangle(GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GL
 
 // Render functions
 void renderScene();
+void renderObjects();
 void renderGrass(float, float, float);
 void renderClouds(float, float, float, float);
 void renderPlanet(float, float, float);
@@ -18,9 +19,13 @@ void renderRoads(float, float, float);
 void renderHorizon();
 void renderCarOneModel();
 void renderCarTwoModel();
+void renderSceneTitleBox();
+void renderSceneTitle(float, float, char*);
+void renderPauseDialogBox();
 void renderPauseScreen();
 void renderTitleScreen();
 
 // Utility Functions
-void displayString(int, int, char*, int);
+void displayString(float, float, char*, int);
 void resetScene();
+void lockPosition();
