@@ -111,6 +111,19 @@ void renderScene()
         lockPosition();
     } else {
         pos+=0.25;
+        // if(scene==1) {
+        //     if(pos==600) {
+        //         pos=0;
+        //     }
+        // }
+        // if(scene==2) {
+            
+        // }
+        // if(scene==3) {
+            
+        // }
+        // if(scene==4) {
+        // }
         // 1st cloud speed
         if(cloudOneSpeed <= 2.0)
             cloudOneSpeed += 0.000035;
@@ -241,6 +254,16 @@ void handleDisplay() {
     }  
 }
 
+void pauseScene() {
+    if(pause==1) {
+        pause=0;
+    }
+    else {
+        pause=1;
+        lock=0;
+    }
+}
+
 void handleKey(unsigned char key, int x, int y) {
     if(key=='s') {
         // Set mode to scenary mode
@@ -261,13 +284,7 @@ void handleKey(unsigned char key, int x, int y) {
         }
     }
     if(key=='p') {
-        if(pause==1) {
-            pause=0;
-        }
-        else {
-            pause=1;
-            lock=0;
-        }
+        pauseScene();
     }
     if(key=='r') {
         resetScene();
@@ -280,6 +297,71 @@ void handleKey(unsigned char key, int x, int y) {
     }
 }
 
+void handleMenu(int option)
+{
+	if(option==1)
+		pauseScene();
+	if(option==2)
+        // Set mode to title screen mode
+		view=0;
+        // Re-render the screen
+        glutPostRedisplay();
+	if(option==3)
+		exit(0);
+}
+
+void handleModesMenu(int option) {
+    resetScene();
+    switch(option) {
+        case 0:
+            scene=0;
+            break;
+        case 1:
+            scene=1;
+            break;
+    }
+}
+
+void handleMainMenu(int option) {
+    switch(option) {
+        case 0:
+            pauseScene();
+            break;
+        case 1:
+            resetScene();
+            break;
+        case 2:
+            // Set mode to title screen mode
+            view = 0;
+            // Re-render the screen
+            glutPostRedisplay();
+            break;
+        case 3:
+            exit(0);
+            break;
+    }
+}
+
+void callMainMenu() {
+    int modesMenu;
+	modesMenu=glutCreateMenu(handleModesMenu);
+	glutAddMenuEntry("Default",0);
+	glutAddMenuEntry("Dawn",1);
+	glutAddMenuEntry("Morning",2);
+	glutAddMenuEntry("Evening",3);
+    glutAddMenuEntry("Night",4);
+	
+	glutCreateMenu(handleMainMenu);
+	glutAddMenuEntry("Pause/Resume", 0);
+    glutAddSubMenu("Modes", modesMenu);
+    glutAddMenuEntry("Reset Scene", 1);
+    glutAddMenuEntry("Exit to title screen", 2);
+    glutAddMenuEntry("Exit", 3);
+	
+	glutAttachMenu(GLUT_RIGHT_BUTTON);
+
+}
+
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
@@ -288,6 +370,7 @@ int main(int argc, char** argv) {
     glutCreateWindow("Town Life Simulation");
     glutKeyboardFunc(handleKey);
     glutDisplayFunc(handleDisplay);
+    callMainMenu();
     glutMainLoop();
     return 0;
 }

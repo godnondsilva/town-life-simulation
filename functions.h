@@ -1,11 +1,7 @@
 // Handlers
 void handleDisplay(); 
 void handleKey(unsigned int, char, char);
-
-// Drawing functions
-void drawCircle(GLfloat, GLfloat, GLfloat, GLfloat);
-void drawRectangle(GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, float, float, float);
-void drawAlphaRectangle(GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, float, float, float, float);   
+void handleMenu(int);
 
 // Render functions
 void renderScene();
@@ -29,3 +25,7 @@ void renderTitleScreen();
 void displayString(float, float, char*, int);
 void resetScene();
 void lockPosition();
+// Utility Drawing functions
+void drawCircle(GLfloat, GLfloat, GLfloat, GLfloat);
+void drawRectangle(GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, float, float, float);
+void drawAlphaRectangle(GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, float, float, float, float);   

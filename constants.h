@@ -59,3 +59,11 @@ int pause=0;
 // 1 - Value not locked (first time)
 // 2 - Value locked (second time)
 int lock=1;
+
+// Scene modes
+// 0 - Default mode
+// 1 - Dawn
+// 2 - Morning
+// 3 - Evening
+// 4 - Night
+int scene=0;
