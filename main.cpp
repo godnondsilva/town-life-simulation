@@ -1,8 +1,6 @@
 #include <GL/glut.h>
-#include <stdlib.h>
 #include <math.h>
 #include <cstring>
-#include <stdio.h>
 
 // constants.h includes all the constants
 #include "constants.h"
@@ -13,62 +11,102 @@
 // objects.h includes all objects in the background
 #include "objects.h"
 
+// Rendering objects
+// Render dawn
+void renderDawn() {
+    renderGrass(0.10, 0.27, 0.11);
+    renderSceneTitle(0.38, -0.035, dawn);
+    renderSky(0, 0.17, 0.37);
+    renderPlanet(1.00, 0.63, 0.18);
+    renderHorizon(0.2, 0.2, 0.2, 0.1);
+    renderClouds(0.5, 0.5, 0.5, 0.4);
+    renderBuildings(0.71, 0.84, 1);
+    renderRoads();
+    renderCarOneModel(1);
+    renderCarTwoModel(1);
+}
+// Render morning
+void renderMorning() {
+    renderGrass(0.204, 0.51, 0.204);
+    renderSceneTitle(0.368, -0.035, morning);
+    renderSky(0.13, 0.36, 0.84);
+    renderPlanet(0.9, 0.9, 0.0);
+    renderHorizon(0.0, 0.0, 0.0, 0.5);
+    renderClouds(0.5, 0.5, 0.5, 0.4);
+    renderBuildings(0.71, 0.84, 1);
+    renderRoads();
+    renderCarOneModel(0);
+    renderCarTwoModel(0);
+}
+// Render evening
+void renderEvening() {
+    renderGrass(0.10, 0.27, 0.11);
+    renderSceneTitle(0.372, -0.035, evening);
+    renderSky(1.00, 0.63, 0.18);
+    renderPlanet(1.00, 0.88, 0.74);
+    renderHorizon(0.0, 0.0, 0.0, 0.5);
+    renderClouds(0.5, 0.5, 0.5, 0.4);
+    renderBuildings(0.71, 0.84, 1);
+    renderRoads();
+    renderCarOneModel(0);
+    renderCarTwoModel(0);
+}
+// Render night
+void renderNight() {
+    renderGrass(0.01, 0.16, 0.00);
+    renderSceneTitle(0.38, -0.035, night);
+    renderSky(0.0, 0.0, 0.0);
+    renderPlanet(0.79, 0.79, 0.79);
+    renderHorizon(0.2, 0.2, 0.2, 0.1);
+    renderClouds(0.5, 0.5, 0.5, 0.4);
+    renderBuildings(1, 0.94, 0.28);
+    renderRoads();
+    renderCarOneModel(1);
+    renderCarTwoModel(1);
+}
+
 void renderObjects() {
-    // Morning Dusk
-    if(pos<=600) {
-        renderGrass(0.10, 0.27, 0.11);
-        renderSceneTitle(0.38, -0.035, dawn);
-        renderSky(0, 0.17, 0.37);
-        renderPlanet(1.00, 0.63, 0.18);
-        renderHorizon(0.2, 0.2, 0.2, 0.1);
-        renderClouds(0.5, 0.5, 0.5, 0.4);
-        renderBuildings(0.71, 0.84, 1);
-        renderRoads();
-        renderCarOneModel(1);
-        renderCarTwoModel(1);
+    if(sceneMode==0) {
+        // Morning Dusk
+        if(pos<=600) {
+            renderDawn();
+        }
+        // Morning
+        if(pos>600 && pos<=1200) {
+            renderMorning();
+        }
+        // Evening
+        if(pos>1200 && pos<=1800) {
+            renderEvening();
+        }
+        // Night
+        if(pos>1800 && pos<2400) {
+            renderNight();
+        }
     }
-    // Morning
-    if(pos>600 && pos<=1200) {
-        renderGrass(0.204, 0.51, 0.204);
-        renderSceneTitle(0.368, -0.035, morning);
-        renderSky(0.13, 0.36, 0.84);
-        renderPlanet(0.9, 0.9, 0.0);
-        renderHorizon(0.0, 0.0, 0.0, 0.5);
-        renderClouds(0.5, 0.5, 0.5, 0.4);
-        renderBuildings(0.71, 0.84, 1);
-        renderRoads();
-        renderCarOneModel(0);
-        renderCarTwoModel(0);
+    if(sceneMode==1) {
+        if(pos<2400) {
+            renderDawn();
+        }
     }
-    // Evening
-    if(pos>1200 && pos<=1800) {
-        renderGrass(0.10, 0.27, 0.11);
-        renderSceneTitle(0.372, -0.035, evening);
-        renderSky(1.00, 0.63, 0.18);
-        renderPlanet(1.00, 0.88, 0.74);
-        renderHorizon(0.0, 0.0, 0.0, 0.5);
-        renderClouds(0.5, 0.5, 0.5, 0.4);
-        renderBuildings(0.71, 0.84, 1);
-        renderRoads();
-        renderCarOneModel(0);
-        renderCarTwoModel(0);
+    if(sceneMode==2) {
+        if(pos<2400) {
+            renderMorning();
+        }
     }
-    // Night
-    if(pos>1800 && pos<2400) {
-        renderGrass(0.01, 0.16, 0.00);
-        renderSceneTitle(0.38, -0.035, night);
-        renderSky(0.0, 0.0, 0.0);
-        renderPlanet(0.79, 0.79, 0.79);
-        renderHorizon(0.2, 0.2, 0.2, 0.1);
-        renderClouds(0.5, 0.5, 0.5, 0.4);
-        renderBuildings(1, 0.94, 0.28);
-        renderRoads();
-        renderCarOneModel(1);
-        renderCarTwoModel(1);
+    if(sceneMode==3) {
+        if(pos<2400) {
+            renderEvening();
+        }
+    }
+    if(sceneMode==4) {
+        if(pos<2400) {
+            renderNight();
+        }
     }
 }
 
-
+// Function to lock the position of the screen (pausing function)
 void lockPosition() {
     float newPos;
     float newPlanetX;
@@ -111,19 +149,7 @@ void renderScene()
         lockPosition();
     } else {
         pos+=0.25;
-        // if(scene==1) {
-        //     if(pos==600) {
-        //         pos=0;
-        //     }
-        // }
-        // if(scene==2) {
-            
-        // }
-        // if(scene==3) {
-            
-        // }
-        // if(scene==4) {
-        // }
+        
         // 1st cloud speed
         if(cloudOneSpeed <= 2.0)
             cloudOneSpeed += 0.000035;
@@ -193,7 +219,7 @@ void renderScene()
 
 
 void displayString(float x, float y, char* string, int fontType) {
-    int len,i;
+    int len, i;
     glColor3f(0.0, 0.0, 0.0);
     glRasterPos2f(x, y);
     len = (int) strlen(string);
@@ -230,7 +256,7 @@ void renderSceneTitle(float x, float y, char* sceneTitle) {
 }
 
 void resetScene() {
-    pos=0;
+    pos = 0;
     planetX = PLANET_X_DEFAULT;
     planetY = PLANET_Y_DEFAULT;
     vehiclePos = DEFAULT_VEHICLE_POS;
@@ -295,6 +321,26 @@ void handleKey(unsigned char key, int x, int y) {
         // Re-render the screen
         glutPostRedisplay();
     }
+    // Number 1
+    if(key==49) {
+        sceneMode=0;
+    }
+    // Number 2
+    if(key==50) {
+        sceneMode=1;
+    }
+    // Number 3
+    if(key==51) {
+        sceneMode=2;
+    }
+    // Number 4
+    if(key==52) {
+        sceneMode=3;
+    }
+    // Number 5
+    if(key==53) {
+        sceneMode=4;
+    }
 }
 
 void handleMenu(int option)
@@ -313,11 +359,25 @@ void handleMenu(int option)
 void handleModesMenu(int option) {
     resetScene();
     switch(option) {
+        // Default scene
         case 0:
-            scene=0;
+            sceneMode=0;
             break;
+        // Dawn scene
         case 1:
-            scene=1;
+            sceneMode=1;
+            break;
+        // Morning scene
+        case 2:
+            sceneMode=2;
+            break;
+        // Evening scene
+        case 3:
+            sceneMode=3;
+            break;
+        // Night scene
+        case 4:
+            sceneMode=4;
             break;
     }
 }
@@ -336,9 +396,6 @@ void handleMainMenu(int option) {
             // Re-render the screen
             glutPostRedisplay();
             break;
-        case 3:
-            exit(0);
-            break;
     }
 }
 
@@ -353,10 +410,9 @@ void callMainMenu() {
 	
 	glutCreateMenu(handleMainMenu);
 	glutAddMenuEntry("Pause/Resume", 0);
-    glutAddSubMenu("Modes", modesMenu);
+    glutAddSubMenu("Scene Modes", modesMenu);
     glutAddMenuEntry("Reset Scene", 1);
-    glutAddMenuEntry("Exit to title screen", 2);
-    glutAddMenuEntry("Exit", 3);
+    glutAddMenuEntry("Exit", 2);
 	
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 
@@ -367,7 +423,7 @@ int main(int argc, char** argv) {
     glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
     glutInitWindowSize (1200, 800);
     glutInitWindowPosition (100, 100);
-    glutCreateWindow("Town Life Simulation");
+    window = glutCreateWindow("Town Life Simulation");
     glutKeyboardFunc(handleKey);
     glutDisplayFunc(handleDisplay);
     callMainMenu();

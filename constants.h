@@ -32,6 +32,9 @@ float cloudOneSpeed = CLOUD_ONE_DEFAULT_SPEED;
 float cloudTwoSpeed = CLOUD_TWO_DEFAULT_SPEED;
 float cloudThreeSpeed = CLOUD_THREE_DEFAULT_SPEED;
 
+// Window instance
+int window;
+
 // Variable pos is used to get the current position in the screen
 // 0-600 - Dusk
 // 600-1200 - Morning
@@ -66,4 +69,4 @@ int lock=1;
 // 2 - Morning
 // 3 - Evening
 // 4 - Night
-int scene=0;
+int sceneMode=0;
