@@ -195,7 +195,7 @@ void renderHorizon(float horizonR, float horizonG, float horizonB, float horizon
     glDisable(GL_BLEND);
 }
 
-// Render windows
+// Render buildings
 void renderBuildings(float windowR, float windowG, float windowB) {
     // 1st building
     // Building background
@@ -285,5 +285,106 @@ void renderBuildings(float windowR, float windowG, float windowB) {
     }
     for(float i=0.12; i<0.20; i+=0.02) {
         drawRectangle(0.645f, i, 0.645f, i+0.01, 0.66f, i+0.01, 0.66f, i, windowR, windowG, windowB);
+    }
+}
+
+// Render dawn
+void renderDawn() {
+    renderGrass(0.10, 0.27, 0.11);
+    renderSceneTitle(0.38, -0.035, dawn);
+    renderSky(0, 0.17, 0.37);
+    renderPlanet(1.00, 0.63, 0.18);
+    renderHorizon(0.2, 0.2, 0.2, 0.1);
+    renderClouds(0.5, 0.5, 0.5, 0.4);
+    renderBuildings(0.71, 0.84, 1);
+    renderRoads();
+    renderCarOneModel(1);
+    renderCarTwoModel(1);
+}
+// Render morning
+void renderMorning() {
+    renderGrass(0.204, 0.51, 0.204);
+    renderSceneTitle(0.368, -0.035, morning);
+    renderSky(0.13, 0.36, 0.84);
+    renderPlanet(0.9, 0.9, 0.0);
+    renderHorizon(0.0, 0.0, 0.0, 0.5);
+    renderClouds(0.5, 0.5, 0.5, 0.4);
+    renderBuildings(0.71, 0.84, 1);
+    renderRoads();
+    renderCarOneModel(0);
+    renderCarTwoModel(0);
+}
+// Render evening
+void renderEvening() {
+    renderGrass(0.10, 0.27, 0.11);
+    renderSceneTitle(0.372, -0.035, evening);
+    renderSky(1.00, 0.63, 0.18);
+    renderPlanet(1.00, 0.88, 0.74);
+    renderHorizon(0.0, 0.0, 0.0, 0.5);
+    renderClouds(0.5, 0.5, 0.5, 0.4);
+    renderBuildings(0.71, 0.84, 1);
+    renderRoads();
+    renderCarOneModel(0);
+    renderCarTwoModel(0);
+}
+// Render night
+void renderNight() {
+    renderGrass(0.01, 0.16, 0.00);
+    renderSceneTitle(0.38, -0.035, night);
+    renderSky(0.0, 0.0, 0.0);
+    renderPlanet(0.79, 0.79, 0.79);
+    renderHorizon(0.2, 0.2, 0.2, 0.1);
+    renderClouds(0.5, 0.5, 0.5, 0.4);
+    renderBuildings(1, 0.94, 0.28);
+    renderRoads();
+    renderCarOneModel(1);
+    renderCarTwoModel(1);
+}
+
+// Render title screen buildings
+void renderTitleScreenBuildings(float windowR, float windowG, float windowB) {
+    // 1st building
+    // Building background
+    drawRectangle(-0.03f, -0.05f, -0.03f, 0.19f, 0.05f, 0.19f, 0.05f, -0.05f, 1, 0.35, 0.69);
+    // Inner building shade
+    drawRectangle(-0.02f, -0.05f, -0.02f, 0.18f, 0.04f, 0.18f, 0.04f, -0.05f, 0.77, 0.27, 0.53);
+    // Building sideline
+    drawRectangle(-0.05f, -0.05f, -0.05f, 0.17f, -0.03f, 0.19f, -0.03f, -0.05f, 0.49, 0, 0.26);
+    // Building windows
+    for(float i=-0.02; i<0.16; i+=0.02) {
+        drawRectangle(-0.01f, i, -0.01f, i+0.01, 0.0045f, i+0.01, 0.0045f, i, windowR, windowG, windowB);
+    }
+    for(float i=-0.02; i<0.16; i+=0.02) {
+        drawRectangle(0.0165f, i, 0.0165f, i+0.01, 0.03f, i+0.01, 0.03f, i, windowR, windowG, windowB);
+    }
+
+    // 2nd building
+    // Building background
+    drawRectangle(0.07f, -0.05f, 0.07f, 0.27f, 0.15f, 0.27f, 0.15f, -0.05f, 0.4, 0.4, 0.4);
+    // Inner building shade
+    drawRectangle(0.08f, -0.05f, 0.08f, 0.26f, 0.14f, 0.26f, 0.14f, -0.05f, 0.26, 0.26, 0.26);
+    // Building sideline
+    drawRectangle(0.05f, -0.05f, 0.05f, 0.25f, 0.07f, 0.27f, 0.07f, -0.05f, 0.14, 0.14, 0.14);
+    // Building windows
+    for(float i=0.12; i<0.24; i+=0.02) {
+        drawRectangle(0.24f, i, 0.24f, i+0.01, 0.255f, i+0.01, 0.255f, i, windowR, windowG, windowB);
+    }
+    for(float i=0.12; i<0.24; i+=0.02) {
+        drawRectangle(0.265f, i, 0.265f, i+0.01, 0.28f, i+0.01, 0.28f, i, windowR, windowG, windowB);
+    }
+
+    // 3rd building
+    // Building background
+    drawRectangle(0.17f, -0.05f, 0.17f, 0.33f, 0.25f, 0.33f, 0.25f, -0.05f, 1, 0.56, 0.33);
+    // Inner building shade
+    drawRectangle(0.18f, -0.05f, 0.18f, 0.32f, 0.24f, 0.32f, 0.24f, -0.05f, 0.7, 0.37, 0.2);
+    // Building sideline
+    drawRectangle(0.15f, -0.05f, 0.15f, 0.31f, 0.17f, 0.33f, 0.17f, -0.05f, 0.48, 0.16, 0);
+    //Building windows
+    for(float i=0.12; i<0.32; i+=0.02) {
+        drawRectangle(0.34f, i, 0.34f, i+0.01, 0.355f, i+0.01, 0.355f, i, windowR, windowG, windowB);
+    }
+    for(float i=0.12; i<0.32; i+=0.02) {
+        drawRectangle(0.365f, i, 0.365f, i+0.01, 0.38f, i+0.01, 0.38f, i, windowR, windowG, windowB);
     }
 }

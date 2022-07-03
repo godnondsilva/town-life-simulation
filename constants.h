@@ -1,7 +1,7 @@
 // Title screen configuration
 char projectTitle[] = "Town Life Simulation";
 char collegeName[] = "St Joseph Engineering College, Mangalore";
-char commands0[] = "Press S to Start";
+char commands0[] = "Press S to Start Simulation";
 
 // Pause screen configuration
 char pauseTitle[] = "Simulation paused";
@@ -32,9 +32,6 @@ float cloudOneSpeed = CLOUD_ONE_DEFAULT_SPEED;
 float cloudTwoSpeed = CLOUD_TWO_DEFAULT_SPEED;
 float cloudThreeSpeed = CLOUD_THREE_DEFAULT_SPEED;
 
-// Window instance
-int window;
-
 // Variable pos is used to get the current position in the screen
 // 0-600 - Dusk
 // 600-1200 - Morning
@@ -45,7 +42,7 @@ float pos = 0;
 // View mode
 // 0 = Title screen
 // 1 - Scenary screen
-int view=1;
+int view=0;
 
 // Directions
 // A - Move slower
