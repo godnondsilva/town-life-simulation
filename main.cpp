@@ -3,13 +3,13 @@
 #include <string.h>
 
 // constants.h includes all the constants
-#include "constants.h"
+#include "constants.hpp"
 // functions.h includes all the function declarations
-#include "functions.h"
+#include "functions.hpp"
 // utility.h includes all the utility functions
-#include "utility.h"
+#include "utility.hpp"
 // objects.h includes all objects in the background
-#include "objects.h"
+#include "objects.hpp"
 
 // Rendering objects
 void renderObjects() {
