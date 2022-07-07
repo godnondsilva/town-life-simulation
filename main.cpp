@@ -2,13 +2,13 @@
 #include <math.h>
 #include <string.h>
 
-// constants.h includes all the constants
+// constants.hpp includes all the constants
 #include "constants.hpp"
-// functions.h includes all the function declarations
+// functions.hpp includes all the function declarations
 #include "functions.hpp"
-// utility.h includes all the utility functions
+// utility.hpp includes all the utility functions
 #include "utility.hpp"
-// objects.h includes all objects in the background
+// objects.hpp includes all objects in the background
 #include "objects.hpp"
 
 // Rendering objects
@@ -28,17 +28,13 @@ void renderObjects() {
             renderNight();
     }
     if(sceneMode==1)
-        if(pos<2400)
-            renderDawn();
+        renderDawn();
     if(sceneMode==2)
-        if(pos<2400)
-            renderMorning();
+        renderMorning();
     if(sceneMode==3)
-        if(pos<2400)
-            renderEvening();
+        renderEvening();
     if(sceneMode==4)
-        if(pos<2400)
-            renderNight();
+        renderNight();
 }
 
 // Function to lock the position of the screen (pausing function)
@@ -110,18 +106,12 @@ void renderScene()
         if(pos==1800)
             pos=1801.0;
         // 4th phase - end of the screen
-        if(pos==2400) {
-            pos=0.0;
-            // Reset sun horizontal position
-            planetX = PLANET_X_DEFAULT;
-            // Reset sun vertical position
-            planetY = PLANET_Y_DEFAULT;
-            vehiclePos = DEFAULT_VEHICLE_POS;
-        }
+        if(pos==2400)
+            resetScene();
         // Render background objects
         renderObjects();
         // Dawn & Morning
-        if(pos<=600 && pos<=1200)
+        if(pos<=1200)
             planetY += 0.000025;
         // Evening & Night
         if(pos>1200 && pos<2400)
