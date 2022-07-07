@@ -1,18 +1,4 @@
-// Title screen configuration
-char projectTitle[] = "Town Life Simulation";
-char collegeName[] = "St Joseph Engineering College, Mangalore";
-char commands0[] = "Press S to Start Simulation";
-
-// Pause screen configuration
-char pauseTitle[] = "Simulation paused";
-char pauseCmd0[] = "Press P to resume";
-
-// Scene title configuration
-char dawn[] = "Dawn";
-char morning[] = "Morning";
-char evening[] = "Evening";
-char night[] = "Night";
-
+// Simulation default definitions
 #define PLANET_X_DEFAULT -0.005
 #define PLANET_Y_DEFAULT -0.05;
 #define DEFAULT_VEHICLE_POS -0.005;
@@ -21,10 +7,32 @@ char night[] = "Night";
 #define CLOUD_THREE_DEFAULT_SPEED -0.005;
 #define DEFAULT_CAR_SPEED 0.0002;
 
+// Title screen configuration
+char projectTitle[] = "Town Life Simulation";
+char controlTitle[] = "Controls";
+char commandDecrease[] = "Press A to decrease vehicle speed";
+char commandIncrease[] = "Press D to increase vehicle speed";
+char commandPause[] = "Press P to pause/resume simulation";
+char commandReset[] = "Press R to reset simulation";
+char comandSceneModes[] = "Press 1/2/3/4/5 to change scene modes";
+char commandQuit[] = "Press Q to return to title screen";
+char commandStart[] = "Press S to Start Simulation";
+
+// Pause screen configuration
+char pauseTitle[] = "Simulation paused";
+char pauseText[] = "Press P to resume";
+
+// Scene title configuration
+char dawn[] = "Dawn";
+char morning[] = "Morning";
+char evening[] = "Evening";
+char night[] = "Night";
+
 // Sun default positions
 float planetX = PLANET_X_DEFAULT;
 float planetY = PLANET_Y_DEFAULT;
 
+// Vehicle default position
 float vehiclePos = DEFAULT_VEHICLE_POS;
 
 // Cloud defaults

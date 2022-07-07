@@ -2,6 +2,8 @@
 void handleDisplay(); 
 void handleKey(unsigned int, char, char);
 void handleMenu(int);
+void handleMainMenu(int);
+void handleModesMenu(int);
 
 // Render functions
 void renderScene();
@@ -22,17 +24,22 @@ void renderMorning();
 void renderEvening();
 void renderNight();
 
-// Render boxes and title screens
-void renderSceneTitleBox();
+// Render menu functions
 void renderSceneTitle(float, float, char*);
-void renderPauseDialogBox();
 void renderPauseScreen();
 void renderTitleScreen();
 
+// Render menu background objects
+void renderSceneTitleBox();
+void renderPauseDialogBox();
+void renderTitleScreenObjects();
+
 // Utility Functions
 void displayString(float, float, char*, int);
+void pauseScene();
 void resetScene();
 void lockPosition();
+void callMainMenu();
 
 // Utility Drawing functions
 void drawCircle(GLfloat, GLfloat, GLfloat, GLfloat);

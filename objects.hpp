@@ -342,7 +342,21 @@ void renderNight() {
 }
 
 // Render title screen buildings
-void renderTitleScreenBuildings(float windowR, float windowG, float windowB) {
+void renderTitleScreenObjects(float windowR, float windowG, float windowB) {
+    // Sun
+    glColor3f(1.00, 0.63, 0.18);
+    drawCircle(0.0255, 0.02, 0.745, 0.325);
+
+    // Cloud
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+    glColor4f(0.5, 0.5, 0.5, 0.4);
+    drawCircle(0.025, 0.025, 0.66, 0.28);
+    drawCircle(0.025, 0.025, 0.69, 0.28);
+    drawCircle(0.025, 0.025, 0.72, 0.28);
+    drawCircle(0.025, 0.025, 0.69, 0.30);
+    glDisable(GL_BLEND);
+
     // 1st building
     // Building background
     drawRectangle(-0.03f, -0.05f, -0.03f, 0.19f, 0.05f, 0.19f, 0.05f, -0.05f, 1, 0.35, 0.69);
@@ -352,39 +366,84 @@ void renderTitleScreenBuildings(float windowR, float windowG, float windowB) {
     drawRectangle(-0.05f, -0.05f, -0.05f, 0.17f, -0.03f, 0.19f, -0.03f, -0.05f, 0.49, 0, 0.26);
     // Building windows
     for(float i=-0.02; i<0.16; i+=0.02) {
-        drawRectangle(-0.01f, i, -0.01f, i+0.01, 0.0045f, i+0.01, 0.0045f, i, windowR, windowG, windowB);
+        drawRectangle(-0.01f, i, -0.01f, i+0.01, 0.0055f, i+0.01, 0.0055f, i, windowR, windowG, windowB);
     }
     for(float i=-0.02; i<0.16; i+=0.02) {
-        drawRectangle(0.0165f, i, 0.0165f, i+0.01, 0.03f, i+0.01, 0.03f, i, windowR, windowG, windowB);
+        drawRectangle(0.0155f, i, 0.0155f, i+0.01, 0.03f, i+0.01, 0.03f, i, windowR, windowG, windowB);
     }
 
     // 2nd building
     // Building background
-    drawRectangle(0.07f, -0.05f, 0.07f, 0.27f, 0.15f, 0.27f, 0.15f, -0.05f, 0.4, 0.4, 0.4);
+    drawRectangle(0.07f, -0.05f, 0.07f, 0.13f, 0.15f, 0.13f, 0.15f, -0.05f, 0.4, 0.4, 0.4);
     // Inner building shade
-    drawRectangle(0.08f, -0.05f, 0.08f, 0.26f, 0.14f, 0.26f, 0.14f, -0.05f, 0.26, 0.26, 0.26);
+    drawRectangle(0.08f, -0.05f, 0.08f, 0.12f, 0.14f, 0.12f, 0.14f, -0.05f, 0.26, 0.26, 0.26);
     // Building sideline
-    drawRectangle(0.05f, -0.05f, 0.05f, 0.25f, 0.07f, 0.27f, 0.07f, -0.05f, 0.14, 0.14, 0.14);
+    drawRectangle(0.05f, -0.05f, 0.05f, 0.11f, 0.07f, 0.13f, 0.07f, -0.05f, 0.14, 0.14, 0.14);
     // Building windows
-    for(float i=0.12; i<0.24; i+=0.02) {
-        drawRectangle(0.24f, i, 0.24f, i+0.01, 0.255f, i+0.01, 0.255f, i, windowR, windowG, windowB);
+    for(float i=-0.02; i<0.11; i+=0.02) {
+        drawRectangle(0.09f, i, 0.09f, i+0.01, 0.1055f, i+0.01, 0.1055f, i, windowR, windowG, windowB);
     }
-    for(float i=0.12; i<0.24; i+=0.02) {
-        drawRectangle(0.265f, i, 0.265f, i+0.01, 0.28f, i+0.01, 0.28f, i, windowR, windowG, windowB);
+    for(float i=-0.02; i<0.11; i+=0.02) {
+        drawRectangle(0.1155f, i, 0.1155f, i+0.01, 0.13f, i+0.01, 0.13f, i, windowR, windowG, windowB);
     }
 
     // 3rd building
     // Building background
-    drawRectangle(0.17f, -0.05f, 0.17f, 0.33f, 0.25f, 0.33f, 0.25f, -0.05f, 1, 0.56, 0.33);
+    drawRectangle(0.17f, -0.05f, 0.17f, 0.09f, 0.25f, 0.09f, 0.25f, -0.05f, 1, 0.56, 0.33);
     // Inner building shade
-    drawRectangle(0.18f, -0.05f, 0.18f, 0.32f, 0.24f, 0.32f, 0.24f, -0.05f, 0.7, 0.37, 0.2);
+    drawRectangle(0.18f, -0.05f, 0.18f, 0.08f, 0.24f, 0.08f, 0.24f, -0.05f, 0.7, 0.37, 0.2);
     // Building sideline
-    drawRectangle(0.15f, -0.05f, 0.15f, 0.31f, 0.17f, 0.33f, 0.17f, -0.05f, 0.48, 0.16, 0);
+    drawRectangle(0.15f, -0.05f, 0.15f, 0.07f, 0.17f, 0.09f, 0.17f, -0.05f, 0.48, 0.16, 0);
     //Building windows
-    for(float i=0.12; i<0.32; i+=0.02) {
-        drawRectangle(0.34f, i, 0.34f, i+0.01, 0.355f, i+0.01, 0.355f, i, windowR, windowG, windowB);
+    for(float i=-0.02; i<0.07; i+=0.02) {
+        drawRectangle(0.19f, i, 0.19f, i+0.01, 0.2055f, i+0.01, 0.2055f, i, windowR, windowG, windowB);
     }
-    for(float i=0.12; i<0.32; i+=0.02) {
-        drawRectangle(0.365f, i, 0.365f, i+0.01, 0.38f, i+0.01, 0.38f, i, windowR, windowG, windowB);
+    for(float i=-0.02; i<0.07; i+=0.02) {
+        drawRectangle(0.2155f, i, 0.2155f, i+0.01, 0.23f, i+0.01, 0.23f, i, windowR, windowG, windowB);
+    }
+
+    // 4th building
+    // Building background
+    drawRectangle(0.55f, -0.05f, 0.55f, 0.09f, 0.63f, 0.09f, 0.63f, -0.05f, 1.00, 0.13, 0.13);
+    // Inner building shade
+    drawRectangle(0.56f, -0.05f, 0.56f, 0.08f, 0.62f, 0.08f, 0.62f, -0.05f, 0.72, 0.00, 0.00);
+    // Building sideline
+    drawRectangle(0.63f, -0.05f, 0.63f, 0.09f, 0.65f, 0.07f, 0.65f, -0.05f, 0.52, 0.00, 0.00);
+    // Building windows
+    for(float i=-0.02; i<0.07; i+=0.02) {
+        drawRectangle(0.57f, i, 0.57f, i+0.01, 0.5855f, i+0.01, 0.5855f, i, windowR, windowG, windowB);
+    }
+    for(float i=-0.02; i<0.07; i+=0.02) {
+        drawRectangle(0.5955f, i, 0.5955f, i+0.01, 0.61f, i+0.01, 0.61f, i, windowR, windowG, windowB);
+    }
+
+    // 5th building
+    // Building background
+    drawRectangle(0.65f, -0.05f, 0.65f, 0.13f, 0.73f, 0.13f, 0.73f, -0.05f, 0.56, 0.29, 1);
+    // Inner building shade
+    drawRectangle(0.66f, -0.05f, 0.66f, 0.12f, 0.72f, 0.12f, 0.72f, -0.05f, 0.38, 0.15, 0.74);
+    // Building sideline
+    drawRectangle(0.73f, -0.05f, 0.73f, 0.13f, 0.75f, 0.11f, 0.75f, -0.05f, 0.12, 0, 0.32);
+    // Building windows
+    for(float i=-0.02; i<0.11; i+=0.02) {
+        drawRectangle(0.67f, i, 0.67f, i+0.01, 0.6855f, i+0.01, 0.6855f, i, windowR, windowG, windowB);
+    }
+    for(float i=-0.02; i<0.11; i+=0.02) {
+        drawRectangle(0.6955f, i, 0.6955f, i+0.01, 0.71f, i+0.01, 0.71f, i, windowR, windowG, windowB);
+    }
+
+    // 6th building
+    // Building background
+    drawRectangle(0.75f, -0.05f, 0.75f, 0.19f, 0.83f, 0.19f, 0.83f, -0.05f, 0.2, 0.5, 0.0);
+    // Inner building shade
+    drawRectangle(0.76f, -0.05f, 0.76f, 0.18f, 0.82f, 0.18f, 0.82f, -0.05f, 0.2, 0.4, 0.0);
+    // Building sideline
+    drawRectangle(0.83f, -0.05f, 0.83f, 0.19f, 0.85f, 0.17f, 0.85f, -0.05f, 0.2, 0.2, 0.0);
+    // Building windows
+    for(float i=-0.02; i<0.16; i+=0.02) {
+        drawRectangle(0.77f, i, 0.77f, i+0.01, 0.7855f, i+0.01, 0.7855f, i, windowR, windowG, windowB);
+    }
+    for(float i=-0.02; i<0.16; i+=0.02) {
+        drawRectangle(0.7955f, i, 0.7955f, i+0.01, 0.81f, i+0.01, 0.81f, i, windowR, windowG, windowB);
     }
 }

@@ -75,6 +75,7 @@ void renderScene()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     
+    // If scene is paused, lock the positions of the screen
     if(pause==1)
         lockPosition();
     else {
@@ -150,19 +151,25 @@ void displayString(float x, float y, char* string, int fontType, float r, float 
     }
 }
 
-unsigned int mbg;
-
 void renderTitleScreen() {
     glClear(GL_COLOR_BUFFER_BIT);
-    displayString(0.3, 0.1, commands0, 1, 1.0, 1.0, 1.0);
-    renderTitleScreenBuildings(0.71, 0.84, 1);
+    displayString(0.32, 0.33, projectTitle, 1, 1.0, 1.0, 1.0);
+    displayString(0.37, 0.26, controlTitle, 1, 1.0, 1.0, 1.0);
+    displayString(0.30, 0.24, commandDecrease, 2, 1.0, 1.0, 1.0);
+    displayString(0.30, 0.22, commandIncrease, 2, 1.0, 1.0, 1.0);
+    displayString(0.30, 0.2, commandPause, 2, 1.0, 1.0, 1.0);
+    displayString(0.33, 0.18, commandReset, 2, 1.0, 1.0, 1.0);
+    displayString(0.29, 0.16, comandSceneModes, 2, 1.0, 1.0, 1.0);
+    displayString(0.31, 0.14, commandQuit, 2, 1.0, 1.0, 1.0);
+    displayString(0.31, 0.1, commandStart, 1, 1.0, 1.0, 1.0);
+    renderTitleScreenObjects(0.71, 0.84, 1);
     glFlush();
 }
 
 void renderPauseScreen() {
     renderPauseDialogBox();
     displayString(0.33, 0.25, pauseTitle, 1, 0.0, 0.0, 0.0);
-    displayString(0.34, 0.2, pauseCmd0, 2, 0.0, 0.0, 0.0);
+    displayString(0.34, 0.2, pauseText, 2, 0.0, 0.0, 0.0);
 }
 
 void renderSceneTitle(float x, float y, char* sceneTitle) {
@@ -215,15 +222,13 @@ void handleKey(unsigned char key, int x, int y) {
     }
     if(key=='d') {
         carSpeed += 0.0002;
-        if(carSpeed>=0.01) {
+        if(carSpeed>=0.01)
             carSpeed=0.01;
-        }
     }
     if(key=='a') {
         carSpeed -= 0.0002;
-        if(carSpeed<=0.0002) {
-            carSpeed=0;
-        }
+        if(carSpeed<=-0.0002)
+            carSpeed=-0.0002;
     }
     if(key=='p') {
         pauseScene();
@@ -239,22 +244,27 @@ void handleKey(unsigned char key, int x, int y) {
     }
     // Number 1
     if(key==49) {
+        resetScene();
         sceneMode=0;
     }
     // Number 2
     if(key==50) {
+        resetScene();
         sceneMode=1;
     }
     // Number 3
     if(key==51) {
+        resetScene();
         sceneMode=2;
     }
     // Number 4
     if(key==52) {
+        resetScene();
         sceneMode=3;
     }
     // Number 5
     if(key==53) {
+        resetScene();
         sceneMode=4;
     }
 }
