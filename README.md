@@ -1,6 +1,6 @@
 # Town Life Simulation
 
-A town life simulation project using OpenGL (GLUT) and C++.
+A simulation project using OpenGL (GLUT) and C++.
 
 ## Documentation
 
