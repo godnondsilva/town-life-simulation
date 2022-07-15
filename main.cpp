@@ -327,19 +327,19 @@ void handleMainMenu(int option) {
 
 void callMainMenu() {
     int modesMenu = glutCreateMenu(handleModesMenu);
-	glutAddMenuEntry("Default",0);
-	glutAddMenuEntry("Dawn",1);
-	glutAddMenuEntry("Morning",2);
-	glutAddMenuEntry("Evening",3);
+    glutAddMenuEntry("Default",0);
+    glutAddMenuEntry("Dawn",1);
+    glutAddMenuEntry("Morning",2);
+    glutAddMenuEntry("Evening",3);
     glutAddMenuEntry("Night",4);
 	
-	glutCreateMenu(handleMainMenu);
-	glutAddMenuEntry("Pause/Resume", 0);
+    glutCreateMenu(handleMainMenu);
+    glutAddMenuEntry("Pause/Resume", 0);
     glutAddSubMenu("Scene Modes", modesMenu);
     glutAddMenuEntry("Reset Scene", 1);
     glutAddMenuEntry("Exit", 2);
 	
-	glutAttachMenu(GLUT_RIGHT_BUTTON);
+    glutAttachMenu(GLUT_RIGHT_BUTTON);
 
 }
 
