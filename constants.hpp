@@ -1,11 +1,11 @@
 // Simulation default definitions
 #define PLANET_X_DEFAULT -0.005
-#define PLANET_Y_DEFAULT -0.05;
-#define DEFAULT_VEHICLE_POS -0.005;
-#define CLOUD_ONE_DEFAULT_SPEED -0.005;
-#define CLOUD_TWO_DEFAULT_SPEED -0.005;
-#define CLOUD_THREE_DEFAULT_SPEED -0.005;
-#define DEFAULT_CAR_SPEED 0.0002;
+#define PLANET_Y_DEFAULT -0.05
+#define DEFAULT_VEHICLE_POS -0.005
+#define CLOUD_ONE_DEFAULT_SPEED -0.005
+#define CLOUD_TWO_DEFAULT_SPEED -0.005
+#define CLOUD_THREE_DEFAULT_SPEED -0.005
+#define DEFAULT_CAR_SPEED 0.0002
 
 // Title screen configuration
 char projectTitle[] = "Town Life Simulation";
