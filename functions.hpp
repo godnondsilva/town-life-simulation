@@ -1,7 +1,6 @@
 // Handlers
 void handleDisplay(); 
 void handleKey(unsigned int, char, char);
-void handleMenu(int);
 void handleMainMenu(int);
 void handleModesMenu(int);
 

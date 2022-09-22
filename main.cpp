@@ -269,19 +269,6 @@ void handleKey(unsigned char key, int x, int y) {
     }
 }
 
-void handleMenu(int option)
-{
-	if(option==1)
-		pauseScene();
-	if(option==2)
-        // Set mode to title screen mode
-		view=0;
-        // Re-render the screen
-        glutPostRedisplay();
-	if(option==3)
-		exit(0);
-}
-
 void handleModesMenu(int option) {
     resetScene();
     switch(option) {
@@ -340,7 +327,6 @@ void callMainMenu() {
     glutAddMenuEntry("Exit", 2);
 	
     glutAttachMenu(GLUT_RIGHT_BUTTON);
-
 }
 
 int main(int argc, char** argv) {
